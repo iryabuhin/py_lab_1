@@ -19,8 +19,8 @@ def discriminant_solve(a: int, b: int, c: int):
     D = (pow(b, 2) - 4*a*c)
     
     if D > 0:
-        x1 = round((-b + sqrt(D)) / 2*a, 2)
-        x2 = round((-b - sqrt(D)) / 2*a, 2)
+        x1 = round((-b + sqrt(D)) / (2*a), 2)
+        x2 = round((-b - sqrt(D)) / (2*a), 2)
         return x1, x2
     elif D < 0:
         complex_roots = np.roots([a, b, c])
@@ -37,7 +37,7 @@ def vieta_solve(a: int, b: int, c: int):
         x1 = i
         for j in possible_roots:
             x2 = j
-            if round(x1+x2, 2) == round(-b/a, 2) and round(x1*x2, 2) == round(c/a, 2):
+            if round(x1+x2 == -b/a, 2) and round(x1*x2 == c/a, 2):
                 return x1, x2
     
     raise NotEnoughComputingPower('Недостаточно вычислительной мощности для решения уравнения теоремой Виета')
